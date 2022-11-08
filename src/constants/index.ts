@@ -11,3 +11,5 @@ export const MESON_URL = 'https://pz-prepnb.meson.network/';
 
 // img.arweave.dev
 export const ARWEAVE_IMG = "https://img.arweave.dev/"
+
+export const ERC721_IMG = "https://mintable.infura-ipfs.io/ipfs/"

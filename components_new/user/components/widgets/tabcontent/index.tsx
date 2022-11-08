@@ -18,24 +18,24 @@ export default function Content({ arkProfile, loading }: { arkProfile: Res; load
   const [selected, setSelected] = useState<number>(0);
   const [activity, setActivity] = useState<ArweaveTransaction[]>(arkProfile.ARWEAVE_TRANSACTIONS);
   
-  
+  console.log(arkProfile.ERC_NFTS);
   // ------------------------------NFT, Stamps Section-----------------------------------
   const [stamp, setStamp] = useState<Stamp[]>(arkProfile.STAMPS);
   let tmp: NFT[] = [];
   const [NFTs, setNFTs] = useState<NFT[]>(tmp);
   // feel free to simplify
-  // if (arkProfile.STAMPS !== undefined || null) {
-  //   for (let n of arkProfile.STAMPS) { 
-  //     if (n.stampedAssetType === "image" ) {
-  //       let stamp_nft = new NFT()
-  //         .add_id(n.stampedAsset)
-  //         .add_poster(n.stampedAsset!)
-  //         .add_timestamp(n.timestamp!)
-  //         .add_content_type(n.stampedAssetType!);
-  //       tmp.push(stamp_nft);
-  //     }
-  //   }
-  // }
+  if (arkProfile.ERC_NFTS !== undefined || null) {
+    for (let n of arkProfile.STAMPS) { 
+      if (n.stampedAssetType === "image" ) {
+        let stamp_nft = new NFT()
+          .add_id(n.stampedAsset)
+          .add_poster(n.stampedAsset!)
+          .add_timestamp(n.timestamp!)
+          .add_content_type(n.stampedAssetType!);
+        tmp.push(stamp_nft);
+      }
+    }
+  }
   if (arkProfile.ANFTS?.koii !== undefined || null) { 
     for (let n of arkProfile.ANFTS.koii) { 
       let anft: NFT = new NFT()
